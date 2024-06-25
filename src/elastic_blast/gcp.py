@@ -887,7 +887,7 @@ def start_cluster(cfg: ElasticBlastConfig):
 
     # Add parameters for private cluster
     actual_params.append('--enable-private-nodes')
-    actual_params.append('--enable-private-endpoint')
+    actual_params.append('--no-enable-private-endpoint')
     actual_params.append('--enable-ip-alias')
     actual_params.append('--master-ipv4-cidr')
     actual_params.append('172.16.0.0/28')
