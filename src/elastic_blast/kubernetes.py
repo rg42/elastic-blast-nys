@@ -882,9 +882,10 @@ def enable_service_account(cfg: ElasticBlastConfig):
         else:
             try:
                 safe_exec(cmd)
-            except:
+            except Exception as e:
                 msg = 'ElasticBLAST is missing permissions for its auto-shutdown and cloud job submission feature. To provide these permissions, please run '
                 msg += f'gcloud projects add-iam-policy-binding {cfg.gcp.project} --member={cfg.gcp.user} --role=roles/container.admin'
+                msg += f'Actual error: {str(e)}'
                 raise UserReportError(returncode=PERMISSIONS_ERROR, message=msg)
 
 
