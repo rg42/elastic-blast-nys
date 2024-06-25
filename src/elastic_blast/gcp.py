@@ -891,6 +891,9 @@ def start_cluster(cfg: ElasticBlastConfig):
     actual_params.append('--enable-ip-alias')
     actual_params.append('--master-ipv4-cidr')
     actual_params.append('172.16.0.0/28')
+    actual_params.append('--enable-master-authorized-networks')
+    actual_params.append('--master-authorized-networks')
+    actual_params.append('0.0.0.0/0')
 
     start = timer()
     if dry_run:
